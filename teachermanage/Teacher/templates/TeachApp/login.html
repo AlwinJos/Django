@@ -1,0 +1,64 @@
+
+{% load static %}
+{% block content %}
+<html>
+<title>Sign_In</title>
+<head>
+    
+ <link rel="stylesheet" href="loginregister.css" /> 
+    </head> 
+ <style>
+body {
+padding: 0;
+margin: 70;
+height: 200px;
+background-color: pink;
+}
+.but{
+    margin-left: 42%;
+    border-color:coral;
+    height: 30;
+    border-color: darkkhaki;
+    transition: transform .2s;
+    
+}
+
+.but:hover{
+    cursor: pointer;
+    background-color: lightgray;
+    color: blue;
+    box-shadow: 3px 3px 2px 0px;
+    transform: scale(1.2);
+    
+    
+}
+    .wrap {
+        height: 270px;
+        width: 290px;
+        background-color: lightblue;
+        margin-left: 38%;
+        margin-top: 15%;
+        padding: 12px;
+        border-radius: 12px;
+}
+</style> 
+<body>
+<div class="wrap">
+<form method="POST">
+    <h1 align="center">Login</h1>
+    {% csrf_token %}
+    {{ fin.as_p}}
+
+<input type="submit" value="Login" class="but">
+    <br>
+    <a href="/admin" class="hoo">Admin Login</a>
+    <br>
+    <a href="/forget">Forget Password</a>
+    <br>
+    <a href="/signup">New User? Register</a>
+</form>
+
+</div>
+</body>
+</html>
+{% endblock %}

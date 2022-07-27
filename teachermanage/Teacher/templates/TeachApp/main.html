@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    {% load static %}
+    <!--<link rel="stylesheet" href="{% static 'css/main.css' %}">-->
+    <title>
+        DashBoard
+    </title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 40px ;
+            
+            background-color: blueviolet;
+            padding: 0;
+            height: 650px;
+        }
+        label,input{
+            display:inline-block;
+        }
+        .card-body{
+            background-color: aliceblue;
+            padding: 20px;
+            width: 500px;
+            margin-left: 30%;
+            background-color: pink;
+            
+            
+        }
+        input[type=submit]{
+            height:40px;
+            margin-left:41%;
+            border-radius: 5px;
+            border-color: pink;
+            margin-top: 2%;
+}
+
+label{
+    
+    width:200px;
+    text-align: right;
+}
+label+input+textarea {
+    width: 100px;
+    margin: 0 30% 0% 4%
+}
+    </style>
+    
+    <div class="card-body">
+<form method="POST" enctype="multipart/form-data">
+    <h1 align="center">Bio-Data</h1>
+    {% csrf_token %}
+    <div class="new_comer">
+        <label for="uname">UserName:</label>
+    <input type="text" name="uname" value={{bunny.UserName}}>
+    <br>
+    <label for="code">Code:</label>
+    <input type="text" name="code" value={{bunny.Code}}>
+    </div>
+    <label for = 'name'>Name:</label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="photo">Photo:</label>
+    <input type="file" name="photo">
+    <br>
+    <label for="dob">D.O.B:</label>
+    <input type="date" name="dob">
+    <br>
+    <label for="qualification">Qualification:</label>
+    <input type="text" name="qualification">
+    <br>
+    <label for="phno">Phone:</label>
+    <input type="number" name="phno">
+    <br>
+    <label for="mail">Email:</label>
+    <input type="email" name="mail">
+    <br>
+    <label for="address">Address:</label>
+    <textarea name="address"></textarea>
+    <br>
+    <label for="ug" >Secured Percentage in UG</label>
+    <input type="number" name="ug">
+    <input type="file" name ="ugfile">
+    <br>
+    <label for="pg" for="pgfile">Secured Percentage in PG</label>
+    <input type="number" name="pg">
+    <input type="file" name="pgfile">
+    <br>
+    <label>M.Phil</label>
+    <input type="number" name="phil">
+    <input type="file" name="mphilfile">
+    <br>
+    <label>Ph.D</label>
+    <input type="number" name="phd">
+    <input type="file" name="phdfile">
+    <br>
+    <label>Teaching Experience</label>
+    <input type="number" name="ex">
+    <input type="file" name="exfile">
+    <br>
+    <label>Research paper</label>
+    <input type="url" name="paper">
+    <br>
+    <label>NET</label>
+    <input type="number" name="net">
+    <input type="file"  name="netup">
+    <br>
+    <label>SET</label>
+    <input type="number" name="set">
+    <input type="file"  name="setup">
+    <br>
+    <label>JRF issue Date</label>
+    <input type="number" name="jrfapp">
+
+    <input type="date" name="jrfdate">
+    <input type="file"  name="jrf">
+
+    <br>
+    <label> Award</label>
+    <input type="text" name="award">
+    <input type="file" name="amdup">
+<br>
+    <input type="submit" value="SUBMIT" >
+    
+
+</form>
+</div>
+
+
+
+</body>
+</html>

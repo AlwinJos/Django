@@ -1,0 +1,20 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+
+        <title>Soo Slow</title>
+    </head>
+    <header>
+        <h1>Admin</h1>
+        <ul>
+            <l1><a href='/admin'>HOME</a></l1>
+            <l1><a href='#'>CODE</a></l1>
+            <l1><a href='#'>LEADERBOARD</a></l1>
+        </ul>
+    </header>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

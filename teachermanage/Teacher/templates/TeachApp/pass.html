@@ -1,0 +1,39 @@
+
+{% load static %}
+{% block content %}
+<title>Forget_Password</title>
+<style>
+body {
+padding: 0;
+margin: 0;
+height: 200px;
+background-color: white;
+}
+.but{
+    margin-left: 42%;
+}
+    .card {
+        height: 270px;
+        width: 350px;
+        background-color: lightblue;
+        margin-left: 38%;
+        margin-top: 15%;
+        padding: 12px;
+        border-radius: 12px;
+}
+</style>
+<body>
+
+<div class="card">
+<form method="POST">
+    <h1>Forget Password</h1>
+    {% csrf_token %}
+
+    <label>Username</label><input type="text" name="user">
+    {{ hoo.as_p }}
+    
+<input class="but" type="submit" value="change" >
+    </form>
+{% endblock%}
+    </div>
+</body>

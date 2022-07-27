@@ -1,0 +1,29 @@
+<html>
+    {% extends 'base.html'%}
+    {% load static %}
+    <head>
+    </head>
+    <style>
+        .box{
+            position:fixed;
+            right: 0%;
+            background-color: lightseagreen;
+            padding: 10px;
+            height:100%
+        
+        }
+    </style>
+    {% block content %}
+    <div class="box">
+    <h2 align="center">Code</h2>
+<form method="POST">
+    {% csrf_token %}
+{{ form.as_p }}
+    <input type="submit" value="Generate">
+    </form>
+    {% for i in alwin%}
+    <div class="tcode">{{ i.code }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
+</html>

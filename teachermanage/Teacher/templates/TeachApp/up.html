@@ -1,0 +1,17 @@
+<html>
+{% load static %}
+<head>
+    
+</head>
+{% block content %}
+<form method="POST" enctype="multipart/form-data"> <!-- we can upload any type of file -->
+    {% csrf_token %}
+    
+    {{hlo.as_p}}
+<input type="submit">
+    </form>
+{% for i in data %}
+<img src="{{i.image.url}}" style="height:300px;width:300px;">
+{% endfor %}
+{% endblock %}
+</html>

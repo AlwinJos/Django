@@ -1,0 +1,36 @@
+<html>
+{% load static %}
+<title>Sign_Up</title>
+<style>
+body {
+padding: 0;
+margin: 0;
+height: 200px;
+background-color: skyblue;
+}
+.but{
+    margin-left: 42%;
+}
+    .card {
+        height: 270px;
+        width: 350px;
+        background-color: white;
+        margin-left: 38%;
+        margin-top: 15%;
+        padding: 12px;
+        border-radius: 12px;
+}
+</style>
+<body>
+<div class="card">
+<fieldset>
+    <legend>Registration</legend>
+<form method="POST">
+    {% csrf_token %}
+{{alwin.as_p}}
+    <input class="but" type="submit" value="Register">
+    </form>
+    </fieldset>
+    </div>
+</body>
+</html>

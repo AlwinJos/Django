@@ -1,0 +1,137 @@
+<html>
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <title>Admin</title>
+</head>
+<style>
+    .wonder{
+        border-radius: 20px;
+        border-color: pink;
+        background-color: blueviolet;
+        width: 80%;
+        margin-left: 10px;
+        margin-top: 5px;
+        padding: 10px;
+        
+    }
+    .box{
+        position:fixed;
+        right: 0%;
+        background-color: lightseagreen;
+        padding: 10px;
+        height:100%;
+        width: 210px;
+        border-radius: 20px;
+        margin-right: .4%;
+        margin-top: .4%;
+
+    
+    }
+    .tcode{
+        text-align: center;
+        padding: 5px;
+        font-size: large;
+    }
+    
+
+</style>
+<header>
+    <h1>Admin</h1>
+    <ul>
+        <l1><a href='#'>HOME</a></l1>
+        <l1><a href="/admin/code">CODE</a></l1>
+        <l1><a href='/admin/board'>LEADERBOARD</a></l1>
+        <l1><a href='#'>ABOUT</a></l1>
+    </ul>
+</header>
+<body>
+{% block content %}
+<div class="box">
+    <h2 align="center">Code</h2>
+<!--<form method="POST">
+    {% csrf_token %}
+{{ form.as_p }}
+    <input type="submit" value="Generate">
+    </form>-->
+    {% for i in alwin%}
+    <div class="tcode">{{ i.code }}</div>
+    {% endfor %}
+</div>
+{% for j in minor %}
+<div class="wonder">
+    <img src="{{j.photo.url}}" width="100" height="80">   
+    {{j.name}}  {{j.address }}
+    {{j.dob }}   {{j.PG }}
+    {{j.qualification}}   {{j.Mphil }}
+    {{j.phone }}   {{j.Phd }}
+    {{j.email }}   {{j.ex }}
+    {{j.research_paper }} {{j.net }}
+    {{j.jrf }} {{j.jrfdate }} {{j.award}}
+    <a href="{{j.ugfile.url}} " target="blank">ugfile</a>
+    <a href="{{j.pgfile.url}} " target="blank">pgfile</a>
+    <a href="{{j.mphilgfile.url}} " target="blank">mphilgfile</a>
+    <a href="{{j.phdfile.url}} " target="blank">phdfile</a>
+    <a href="{{j.exfile.url}} " target="blank">exfile</a>
+    <a href="{{j.netfile.url}} " target="blank">netfile</a>
+    <a href="{{j.jrffile.url}} " target="blank">jrffile</a>
+    <a href="{{j.awardfile.url}} " target="blank">awardfile</a>
+
+    
+    <form  method="POST">
+        {% csrf_token %}
+        <input type='text' name="name" placeholder='{{j.name}}' value="{{j.name}}" readonly>
+
+        <input type="radio" name="gen" value="null" >NOT
+        <input type="radio" name="gen" value="verified"  >VERIFIED
+        <input type='number' name="ugscore" placeholder='{{j.UG}}' value="{{j.UG}}" readonly>
+        <a href="{% url 'calc' %}">Click Here</a>
+        <input type="submit" value="Calculate" >
+        PG
+    <input type="radio" name="pg" value="null" >NOT
+        <input type="radio" name="pg" value="verified"  >VERIFIED <br>
+        Mphil
+        <input type="radio" name="phil" value="null" >NOT
+        <input type="radio" name="phil" value="verified"  >VERIFIED <br>
+        PHD
+        <input type="radio" name="phd" value="null" >NOT
+        <input type="radio" name="phd" value="verified"  >VERIFIED<br>
+        Teaching Ex
+        <input type="radio" name="ex" value="null" >NOT
+        <input type="radio" name="ex" value="verified"  >VERIFIED<br>
+        JRF
+        <input type="radio" name="jrf" value="null" >NOT
+        <input type="radio" name="jrf" value="verified"  >VERIFIED<br>
+        NET
+        <input type="radio" name="net" value="null" >NOT
+        <input type="radio" name="net" value="verified"  >VERIFIED<br>
+        Research Paper:
+        Paper1
+        <input type="radio" name="paper1" value="null" >NOT
+        <input type="radio" name="paper1" value="verified"  >VERIFIED<br>
+        Paper2
+        <input type="radio" name="paper2"value="null" >NOT
+        <input type="radio" name="paper2" value="verified"  >VERIFIED<br>
+        Paper3
+        <input type="radio" name="paper3" value="null" >NOT
+        <input type="radio" name="paper3" value="verified"  >VERIFIED
+    </form>
+</div>
+<div class="contain">
+    {% for k in safe %}
+    {% if j.name == k.name %}
+    <input type="text" name = 'fun' placeholder="{{k.api}}" value='{{k.api}}' disabled>
+    {% endif %}
+    {{api_score}}
+    {% endfor %}
+
+{% endfor %}
+</div>
+{% endblock %}
+
+
+
+</body>
+</html>
+
+
